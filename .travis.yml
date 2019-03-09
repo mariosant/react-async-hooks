@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - lts/*
+cache: yarn
+install: yarn
+
+script:
+  - yarn xo
+  - yarn test
+  - yarn build
+
+jobs:
+  include:
+    - stage: release
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - yarn semantic-release
