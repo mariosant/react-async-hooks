@@ -1,15 +1,17 @@
 import {useState} from 'react';
+import makeState, {State} from './make-state';
 
-const useAsyncImperative = (asyncFn: Function, params: any) => {
-	const [state, setState] = useState({pending: false});
+const useAsyncImperative = (
+	asyncFn: Function,
+	params: any,
+): [State, () => Promise<void>] => {
+	const [state, setState] = useState(makeState(false));
 
 	const run = async () => {
-		setState({pending: true, error: undefined, data: undefined});
+		setState({pending: true});
 		asyncFn(params)
-			.then((data: any) => setState({pending: false, error: undefined, data}))
-			.catch((error: Error) =>
-				setState({pending: false, error, data: undefined}),
-			);
+			.then((data: any) => setState(makeState(false, data)))
+			.catch((error: Error) => setState(makeState(false, undefined, error)));
 	};
 
 	return [state, run];
