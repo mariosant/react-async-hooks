@@ -13,16 +13,16 @@
 		"test": "jest"
 	},
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"jest": "^24.3.1",
+		"xo": "^0.24.0"
+	},
 	"devDependencies": {
 		"husky": "^1.3.1",
-		"jest": "^23",
 		"mdx-go": "^2.0.0-32",
-		"nodemon": "^1",
 		"react": "^16.8.4",
 		"semantic-release": "^15.13.3",
-		"typescript": "^3.3.3333",
-		"xo": "^0.23"
+		"typescript": "^3.3.3333"
 	},
 	"peerDependencies": {
 		"react": "^16.8.4"
