@@ -14,7 +14,7 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"jest": "^24.3.1",
+		"jest": "^24.4.0",
 		"xo": "^0.24.0"
 	},
 	"devDependencies": {
