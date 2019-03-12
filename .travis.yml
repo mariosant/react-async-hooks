@@ -5,7 +5,6 @@ cache: yarn
 install: yarn
 
 script:
-  - yarn xo
   - yarn test
   - yarn build
 
