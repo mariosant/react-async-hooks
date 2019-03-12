@@ -7,9 +7,9 @@
 	},
 	"version": "0.0.0",
 	"description": "A collection of react hooks to help you with async functions",
-	"main": "src/index.ts",
+	"main": "dist/index.js",
+	"types": "dist/types/index.d.ts",
 	"scripts": {
-		"lint": "xo",
 		"test": "jest"
 	},
 	"license": "MIT",
@@ -18,30 +18,37 @@
 		"xo": "^0.24.0"
 	},
 	"devDependencies": {
+		"@types/jest": "^24.0.11",
 		"@types/react": "^16.8.7",
+		"delay": "^4.1.0",
 		"husky": "^1.3.1",
-		"mdx-go": "^2.0.0-32",
+		"jest": "^24.3.1",
+		"prettier": "^1.16.4",
 		"react": "^16.8.4",
+		"react-dom": "^16.8.4",
+		"react-hooks-testing-library": "^0.3.6",
+		"react-testing-library": "^6.0.0",
 		"semantic-release": "^15.13.3",
+		"ts-jest": "^24.0.0",
+		"tslib": "^1.9.3",
 		"typescript": "^3.3.3333"
 	},
 	"peerDependencies": {
 		"react": "^16.8.4"
 	},
-	"xo": {
-		"prettier": true,
-		"envs": [
-			"jest",
-			"node",
-			"browser"
+	"jest": {
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js"
 		],
-		"rules": {
-			"camelcase": 1
+		"transform": {
+			"\\.(ts|tsx)$": "ts-jest"
 		}
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "yarn lint"
+			"pre-commit": "yarn prettier --write src/**.*"
 		}
 	}
 }
