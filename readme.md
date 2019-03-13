@@ -26,7 +26,59 @@ import {useAsync, useAsyncImperative} from '@mariosant/react-async-hooks';
 
 ## Usage
 
-WIP
+The module consists of two different hooks, `useAsync` and `useAsyncImperative`. The reason for that is, this way you can easily pick when the hook is going to be executed.
+
+### useAsync
+
+`useAsync(fn, params, id)` will execute the provided async function as soon as the component renders.
+
+```javascript
+import {useAsync} from '@mariosant/react-async-hooks';
+
+const fetchAsyncFn = async url => {
+	// do something async
+};
+
+const Component = props => {
+	const {pending, data, error} = useAsync(fetchAsyncFn, props.url);
+
+	return <div>...</div>;
+};
+```
+
+If the params for the async function is an object or an array, you will need to pass an explicit id, like the following example.
+
+```javascript
+const Component = props => {
+	const {pending, data, error} = useAsync(fetchAsyncFn, props, props.url);
+
+	return <div>...</div>;
+};
+```
+
+### useAsyncImperative
+
+`useAsyncImperative(fn, params)` is very similar to `useAsync`, but instead the action will be invoked imperitevely.
+
+```javascript
+import {useAsyncImperative} from '@mariosant/react-async-hooks';
+
+const fetchAsyncFn = async url => {
+	// do something async
+};
+
+const Component = props => {
+	const [{pending, data, error}, run] = useAsyncImperative(fetchAsyncFn, props);
+
+	return (
+		<div>
+			...
+			<button onClick={run}>Click me</button>
+			...
+		</div>
+	);
+};
+```
 
 ## Development
 
