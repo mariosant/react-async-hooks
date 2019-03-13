@@ -10,13 +10,11 @@
 	"main": "dist/index.js",
 	"types": "dist/types/index.d.ts",
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"publish": "tsc --build"
 	},
 	"license": "MIT",
-	"dependencies": {
-		"jest": "^24.4.0",
-		"xo": "^0.24.0"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@types/jest": "^24.0.11",
 		"@types/react": "^16.8.7",
