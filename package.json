@@ -5,7 +5,7 @@
 		"email": "mariosant@sent.com",
 		"website": "https://mariosant.carrd.co"
 	},
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"description": "A collection of react hooks to help you with async functions",
 	"main": "dist/index.js",
 	"types": "dist/types/index.d.ts",
