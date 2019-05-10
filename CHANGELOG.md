@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.4.0](https://github.com/mariosant/react-async-hooks/compare/v0.2.12...v0.4.0) (2019-05-10)
+
+
+### Features
+
+* Simplify api and switch to js ([24c6019](https://github.com/mariosant/react-async-hooks/commit/24c6019))
+
+
 
 # [0.3.0](https://github.com/mariosant/react-async-hooks/compare/v0.2.12...v0.3.0) (2019-05-10)
 
