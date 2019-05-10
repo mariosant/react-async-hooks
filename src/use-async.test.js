@@ -12,23 +12,24 @@ describe('use-async', () => {
 		};
 
 		const {result} = renderHook(() => useAsync(fn));
+
 		expect(result.current).toEqual({
 			pending: true,
 			data: undefined,
 			error: undefined,
 		});
 
-		await delay(500);
-		expect(result.current).toEqual({
-			pending: false,
-			data: true,
-			error: undefined,
-		});
+		setTimeout(() => {
+			expect(result.current).toEqual({
+				pending: false,
+				data: true,
+				error: undefined,
+			});
+		}, 500);
 	});
 
 	test('errors should be wrapped to property error', async () => {
 		const fn = async () => {
-			await delay(300);
 			throw new Error('oopsie');
 		};
 
@@ -39,11 +40,12 @@ describe('use-async', () => {
 			error: undefined,
 		});
 
-		await delay(500);
-		expect(result.current).toEqual({
-			pending: false,
-			data: undefined,
-			error: expect.any(Error),
-		});
+		setTimeout(() => {
+			expect(result.current).toEqual({
+				pending: false,
+				data: undefined,
+				error: expect.any(Error),
+			});
+		}, 100);
 	});
 });
