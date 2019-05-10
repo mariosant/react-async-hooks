@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/mariosant/react-async-hooks/compare/v0.4.0...v0.4.1) (2019-05-10)
+
+
+### Bug Fixes
+
+* fix deps issue ([c72af2a](https://github.com/mariosant/react-async-hooks/commit/c72af2a))
+
+
+
 ## [0.4.0](https://github.com/mariosant/react-async-hooks/compare/v0.2.12...v0.4.0) (2019-05-10)
 
 
