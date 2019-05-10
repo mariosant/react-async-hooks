@@ -13,7 +13,7 @@ const useAsync = (asyncFn, deps = []) => {
 		asyncFn()
 			.then(data => setState({pending: false, data}))
 			.catch(error => setState({pending: false, data: undefined, error}));
-	}, [asyncFn, deps]);
+	}, deps);
 
 	return state;
 };

@@ -7,7 +7,7 @@
 	},
 	"version": "0.4.0",
 	"description": "A collection of react hooks to help you with async functions",
-	"main": "dist/index.js",
+	"main": "src/index.js",
 	"scripts": {
 		"test": "jest",
 		"prepack": "yarn babel ./src/* -d ./dist",
@@ -47,7 +47,6 @@
 		],
 		"envs": [
 			"jest",
-			"node",
 			"browser"
 		],
 		"rules": {
