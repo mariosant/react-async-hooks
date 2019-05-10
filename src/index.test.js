@@ -1,4 +1,4 @@
-import {useAsync, useAsyncImperative} from './index';
+import {useAsync, useAsyncImperative} from '.';
 
 describe('index', () => {
 	test('exports properly', () => {

@@ -1,6 +1,6 @@
-import useAsync from './use-async';
 import {renderHook, cleanup} from 'react-hooks-testing-library';
 import delay from 'delay';
+import useAsync from './use-async';
 
 afterEach(cleanup);
 
@@ -10,7 +10,8 @@ describe('use-async', () => {
 			await delay(300);
 			return true;
 		};
-		const {result} = renderHook(() => useAsync(fn, undefined, 'delay'));
+
+		const {result} = renderHook(() => useAsync(fn));
 		expect(result.current).toEqual({
 			pending: true,
 			data: undefined,
@@ -30,7 +31,8 @@ describe('use-async', () => {
 			await delay(300);
 			throw new Error('oopsie');
 		};
-		const {result} = renderHook(() => useAsync(fn, undefined, 'delay'));
+
+		const {result} = renderHook(() => useAsync(fn));
 		expect(result.current).toEqual({
 			pending: true,
 			data: undefined,

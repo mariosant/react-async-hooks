@@ -5,8 +5,6 @@
 [![NPM version](https://img.shields.io/npm/v/@mariosant/react-async-hooks.svg)](https://www.npmjs.com/package/@mariosant/react-async-hooks)
 [![Build Status](https://travis-ci.org/mariosant/react-async-hooks.svg?branch=master)](https://travis-ci.org/mariosant/react-async-hooks)
 
-Lorem ipsum dorcet sit amet
-
 ## Installation
 
 Add `@mariosant/react-async-hooks` to your `package.json`.
@@ -30,27 +28,17 @@ The module consists of two different hooks, `useAsync` and `useAsyncImperative`.
 
 ### useAsync
 
-`useAsync(fn, params, id)` will execute the provided async function as soon as the component renders.
+`useAsync(fn, deps)` will execute the provided async function as soon as the component renders.
 
 ```javascript
 import {useAsync} from '@mariosant/react-async-hooks';
 
-const fetchAsyncFn = async url => {
+const fetchAsyncFn = async () => {
 	// do something async
 };
 
 const Component = props => {
-	const {pending, data, error} = useAsync(fetchAsyncFn, props.url);
-
-	return <div>...</div>;
-};
-```
-
-If the params for the async function is an object or an array, you will need to pass an explicit id, like the following example.
-
-```javascript
-const Component = props => {
-	const {pending, data, error} = useAsync(fetchAsyncFn, props, props.url);
+	const {pending, data, error} = useAsync(fetchAsyncFn, []);
 
 	return <div>...</div>;
 };
@@ -58,31 +46,27 @@ const Component = props => {
 
 ### useAsyncImperative
 
-`useAsyncImperative(fn, params)` is very similar to `useAsync`, but instead the action will be invoked imperitevely.
+`useAsyncImperative(fn)` is very similar to `useAsync`, but instead the action will be invoked imperitevely.
 
 ```javascript
 import {useAsyncImperative} from '@mariosant/react-async-hooks';
 
-const fetchAsyncFn = async url => {
+const fetchAsyncFn = async () => {
 	// do something async
 };
 
 const Component = props => {
-	const [{pending, data, error}, run] = useAsyncImperative(fetchAsyncFn, props);
+	const [{pending, data, error}, execute] = useAsyncImperative(fetchAsyncFn);
 
 	return (
 		<div>
 			...
-			<button onClick={run}>Click me</button>
+			<button onClick={execute}>Click me</button>
 			...
 		</div>
 	);
 };
 ```
-
-## Development
-
-WIP
 
 ## Meta
 

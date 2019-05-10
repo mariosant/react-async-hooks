@@ -8,18 +8,25 @@
 	"version": "0.2.12",
 	"description": "A collection of react hooks to help you with async functions",
 	"main": "dist/index.js",
-	"types": "dist/types/index.d.ts",
 	"scripts": {
 		"test": "jest",
-		"release": "standard-version",
-		"prepack": "tsc --build"
+		"prepack": "yarn babel ./src/* -d ./dist",
+		"release": "standard-version"
 	},
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"@babel/runtime": "^7.4.4"
+	},
 	"devDependencies": {
-		"@types/jest": "^24.0.11",
-		"@types/react": "^16.8.7",
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.4.0",
+		"@babel/plugin-transform-runtime": "^7.4.4",
+		"@babel/preset-env": "^7.4.2",
+		"@babel/preset-react": "^7.0.0",
 		"delay": "^4.1.0",
+		"eslint-config-xo-react": "^0.19.0",
+		"eslint-plugin-react": "^7.12.4",
+		"eslint-plugin-react-hooks": "^1.6.0",
 		"husky": "^2.1.0",
 		"jest": "^24.3.1",
 		"prettier": "^1.16.4",
@@ -28,21 +35,29 @@
 		"react-hooks-testing-library": "^0.4.0",
 		"react-testing-library": "^7.0.0",
 		"standard-version": "^5.0.2",
-		"ts-jest": "^24.0.0",
-		"tslib": "^1.9.3",
-		"typescript": "^3.3.4000"
+		"xo": "^0.24.0"
 	},
 	"peerDependencies": {
 		"react": "^16.8.4"
 	},
-	"jest": {
-		"moduleFileExtensions": [
-			"ts",
-			"tsx",
-			"js"
+	"xo": {
+		"prettier": true,
+		"extends": [
+			"xo-react"
 		],
-		"transform": {
-			"\\.(ts|tsx)$": "ts-jest"
+		"envs": [
+			"jest",
+			"node",
+			"browser"
+		],
+		"rules": {
+			"camelcase": 1
+		}
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "xo",
+			"pre-push": "jest"
 		}
 	}
 }

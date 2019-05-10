@@ -1,6 +1,6 @@
-import useAsyncImperative from './use-async-imperative';
 import {renderHook, cleanup, act} from 'react-hooks-testing-library';
 import delay from 'delay';
+import useAsyncImperative from './use-async-imperative';
 
 afterEach(cleanup);
 
@@ -10,7 +10,8 @@ describe('use-async imperative', () => {
 			await delay(300);
 			return true;
 		};
-		const {result} = renderHook(() => useAsyncImperative(fn, undefined));
+
+		const {result} = renderHook(() => useAsyncImperative(fn));
 
 		expect(result.current).toEqual([
 			{
