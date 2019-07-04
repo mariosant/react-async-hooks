@@ -7,10 +7,10 @@
 	},
 	"version": "0.4.1",
 	"description": "A collection of react hooks to help you with async functions",
-	"main": "src/index.js",
+	"main": "dist/index.js",
 	"scripts": {
 		"test": "jest",
-		"prepack": "yarn babel ./src/* -d ./dist",
+		"prepack": "babel ./src/* -d ./dist",
 		"release": "standard-version"
 	},
 	"license": "MIT",
