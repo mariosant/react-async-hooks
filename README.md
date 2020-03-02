@@ -19,12 +19,12 @@ $ yarn add @mariosant/react-async-hooks
 You can now import the module and use it like
 
 ```javascript
-import {useAsync, useAsyncImperative} from '@mariosant/react-async-hooks';
+import {useAsync, useAsyncTrigger} from '@mariosant/react-async-hooks';
 ```
 
 ## Usage
 
-The module consists of two different hooks, `useAsync` and `useAsyncImperative`. The reason for that is, this way you can easily pick when the hook is going to be executed.
+The module consists of two different hooks, `useAsync` and `useAsyncTrigger`. The reason for that is, this way you can easily pick when the hook is going to be executed.
 
 ### useAsync
 
@@ -38,30 +38,30 @@ const fetchAsyncFn = async () => {
 };
 
 const Component = props => {
-	const {pending, data, error} = useAsync(fetchAsyncFn, []);
+	const [{pending, data, error}, {reload}] = useAsync(fetchAsyncFn, []);
 
 	return <div>...</div>;
 };
 ```
 
-### useAsyncImperative
+### useAsyncTrigger
 
-`useAsyncImperative(fn)` is very similar to `useAsync`, but instead the action will be invoked imperitevely.
+`useAsyncTrigger(fn)` is very similar to `useAsync`, but instead the action will be invoked imperitevely.
 
 ```javascript
-import {useAsyncImperative} from '@mariosant/react-async-hooks';
+import {useAsyncTrigger} from '@mariosant/react-async-hooks';
 
 const fetchAsyncFn = async () => {
 	// do something async
 };
 
 const Component = props => {
-	const [{pending, data, error}, execute] = useAsyncImperative(fetchAsyncFn);
+	const [{pending, data, error}, {trigger] = useAsyncTrigger(fetchAsyncFn);
 
 	return (
 		<div>
 			...
-			<button onClick={execute}>Click me</button>
+			<button onClick={trigger}>Click me</button>
 			...
 		</div>
 	);
